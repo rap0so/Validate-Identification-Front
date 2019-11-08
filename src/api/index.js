@@ -11,8 +11,8 @@ const axiosInstance = axios.create({
  *
  * @returns {function} promise resolver
  */
-const apiGetIdentifiers = ({ callback, dispatch }) =>
-  handleAnyResponse({ request: axiosInstance.get('/'), errorMessage: 'Não foi possível recuperar os registros', callback, dispatch })
+const apiGetIdentifiers = ({ callback }) =>
+  handleAnyResponse({ request: axiosInstance.get('/'), errorMessage: 'Não foi possível recuperar os registros', callback })
 
 /**
  * Method to save new identifier
@@ -24,14 +24,13 @@ const apiGetIdentifiers = ({ callback, dispatch }) =>
  *
  * @returns {function} promise resolver
  */
-const apiAddIdentifiers = ({ data, callback, dispatch }) =>
+const apiAddIdentifiers = ({ data, callback }) =>
   handleAnyResponse({
     request: axiosInstance.post('/', {
       data
     }),
     errorMessage: 'Não foi possível salvar o registro',
-    callback,
-    dispatch
+    callback
   })
 
 /**
@@ -42,12 +41,11 @@ const apiAddIdentifiers = ({ data, callback, dispatch }) =>
  *
  * @returns {function} promise resolver
  */
-const apiUpdateIdentifier = ({ id, callback, dispatch }) =>
+const apiUpdateIdentifier = ({ id, callback }) =>
   handleAnyResponse({
     request: axiosInstance.put('/blacklist/' + id),
     errorMessage: 'Não foi possível atualizar o registro',
-    callback,
-    dispatch
+    callback
   })
 
 /**
@@ -58,12 +56,11 @@ const apiUpdateIdentifier = ({ id, callback, dispatch }) =>
  *
  * @returns {function} promise resolver
  */
-const apiDeleteIdentifier = ({ id, callback, dispatch }) =>
+const apiDeleteIdentifier = ({ id, callback }) =>
   handleAnyResponse({
     request: axiosInstance.delete('/' + id),
     errorMessage: 'Não foi possível remover o registro',
-    callback,
-    dispatch
+    callback
   })
 
 /**
@@ -73,11 +70,10 @@ const apiDeleteIdentifier = ({ id, callback, dispatch }) =>
  * @param {string} errorMessage - Error message to return to catch
  * @param {function} callback - method to be executed on success
  */
-const handleAnyResponse = ({ request, errorMessage, callback, dispatch }) => {
+const handleAnyResponse = ({ request, errorMessage, callback }) => {
   request.then(response => {
     if (response.data.error) throw new Error(response.data.error)
-
-    dispatch(callback(response.data.data))
+    callback(response.data.data)
   })
     .catch(error => {
       console.error(error)

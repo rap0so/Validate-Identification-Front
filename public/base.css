@@ -1,8 +1,14 @@
 * {
   color: #333;
   font-family: 'Varela Round', sans-serif;
+  outline: none;
 }
 html,
 body {
   height: 100%;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }

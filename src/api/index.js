@@ -74,7 +74,6 @@ const apiDeleteIdentifier = ({ id, callback, dispatch }) =>
  * @param {function} callback - method to be executed on success
  */
 const handleAnyResponse = ({ request, errorMessage, callback, dispatch }) => {
-  debugger
   request.then(response => {
     if (response.data.error) throw new Error(response.data.error)
 

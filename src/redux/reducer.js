@@ -4,14 +4,14 @@ import {
 } from './actionTypes'
 
 const initialState = {
-  data: [],
+  data: false,
   loading: false
 }
 const store = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_IDENTIFIERS:
       return {
-        data: [],
+        data: false,
         loading: true
       }
     case RECEIVE_IDENTIFIERS:

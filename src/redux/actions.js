@@ -14,7 +14,7 @@ import {
 } from './actionTypes'
 
 const requestIdentifiers = dispatch => {
-  apiGetIdentifiers({ callback: returnIdentifiers, dispatch })
+  apiGetIdentifiers({ callback: data => dispatch(returnIdentifiers(data)) })
   return {
     type: REQUEST_IDENTIFIERS
   }
@@ -27,7 +27,7 @@ const returnIdentifiers = data =>
   })
 
 const createIdentifiers = (data, dispatch) => {
-  apiAddIdentifiers({ data, callback: returnIdentifiers, dispatch })
+  apiAddIdentifiers({ data, callback: () => dispatch(requestIdentifiers(dispatch)) })
   return {
     type: CREATE_IDENTIFIERS,
     data
@@ -35,7 +35,7 @@ const createIdentifiers = (data, dispatch) => {
 }
 
 const updateIdentifier = (id, dispatch) => {
-  apiUpdateIdentifier({ id, callback: returnIdentifiers, dispatch })
+  apiUpdateIdentifier({ id, callback: () => requestIdentifiers(dispatch) })
   return {
     type: UPDATE_IDENTIFIERS,
     id
@@ -43,7 +43,7 @@ const updateIdentifier = (id, dispatch) => {
 }
 
 const deleteIdentifier = (id, dispatch) => {
-  apiDeleteIdentifier({ id, callback: returnIdentifiers, dispatch })
+  apiDeleteIdentifier({ id, callback: () => requestIdentifiers(dispatch) })
   return {
     type: DELETE_IDENTIFIERS,
     id

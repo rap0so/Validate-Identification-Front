@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> Project developed on React to do an CRUD on saved  cpf and cnpj
+> Project developed on React to do an CRUD on saved cpf and cnpj
 
 ### 🏠 [Homepage](https://github.com/rap0so/webapp-validate-identification)
 
@@ -22,13 +22,8 @@ yarn install
 yarn start
 ```
 
-## Run tests
-
-```sh
-yarn test
-```
-
 ## Build project
+
 ```sh
 yarn build
 ```
@@ -37,8 +32,8 @@ yarn build
 
 👤 **William G**
 
-* Website: https://www.linkedin.com/in/william-godoy-4bb919b5/
-* Github: [@Rap0so](https://github.com/Rap0so)
+- Website: https://www.linkedin.com/in/william-godoy-4bb919b5/
+- Github: [@Rap0so](https://github.com/Rap0so)
 
 ## Show your support
 
@@ -49,5 +44,6 @@ Give a ⭐️ if this project helped you!
 Copyright © 2019 [William G](https://github.com/Rap0so).<br />
 This project is [ISC](https://opensource.org/licenses/isc) licensed.
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

@@ -5,12 +5,16 @@ import styledComponent from './IdenficationList.style'
 
 const { UlStyled, LiStyled, SpanRemoveId } = styledComponent
 
-const IdentificationList = ({ list, removeId, updateId }) => {
+const IdentificationList = ({ list, removeId, blackListId, blackListMode }) => {
   return (
     <UlStyled className='UlStyled'>
       {list.map((id, idx) => (
         <LiStyled className='LiStyled' key={idx}>
-          <Identification id={id} />
+          <Identification
+            id={id}
+            blackListMode={blackListMode}
+            blackListId={blackListId}
+          />
           <SpanRemoveId onClick={() => removeId(id._id)}>
             <img src='https://img.icons8.com/windows/50/000000/add-trash.png' />
           </SpanRemoveId>
@@ -23,7 +27,8 @@ const IdentificationList = ({ list, removeId, updateId }) => {
 IdentificationList.propTypes = {
   list: PropTypes.array,
   removeId: PropTypes.func,
-  updateId: PropTypes.func
+  blackListId: PropTypes.func,
+  blackListMode: PropTypes.bool
 }
 
 export default IdentificationList

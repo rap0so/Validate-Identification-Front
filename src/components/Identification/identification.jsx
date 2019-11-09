@@ -3,12 +3,12 @@ import IdStyle from './identification.style'
 import Proptypes from 'prop-types'
 
 const Identification = ({ id }) => (
-  <IdStyle className='IdStyle'>{id.number}</IdStyle>
+  <IdStyle className='IdStyle'>{id.parsedNumber}</IdStyle>
 )
 
 Identification.propTypes = {
   id: Proptypes.shape({
-    number: Proptypes.string
+    parsedNumber: Proptypes.string
   })
 }
 

@@ -70,15 +70,10 @@ const apiDeleteIdentifier = ({ id, callback }) =>
  * @param {string} errorMessage - Error message to return to catch
  * @param {function} callback - method to be executed on success
  */
-const handleAnyResponse = ({ request, errorMessage, callback }) => {
-  request.then(response => {
-    if (response.data.error) throw new Error(response.data.error)
-    callback(response.data.data)
-  })
-    .catch(error => {
-      console.error(error)
-      throw new Error(errorMessage)
-    })
+const handleAnyResponse = async ({ request, errorMessage, callback }) => {
+  const response = await request
+  if (response.data.error) throw new Error(errorMessage + response.data.error)
+  return callback(response.data.data)
 }
 export {
   apiGetIdentifiers,

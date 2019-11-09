@@ -16,7 +16,10 @@ const IdentificationList = ({ list, removeId, blackListId, blackListMode }) => {
             blackListId={blackListId}
           />
           <SpanRemoveId onClick={() => removeId(id._id)}>
-            <img src='https://img.icons8.com/windows/50/000000/add-trash.png' />
+            <img
+              alt='trash icon'
+              src='https://img.icons8.com/windows/50/000000/add-trash.png'
+            />
           </SpanRemoveId>
         </LiStyled>
       ))}

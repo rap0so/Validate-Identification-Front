@@ -41,7 +41,7 @@ const App = () => {
     if (!Array.isArray(identifications)) {
       dispatch(requestIdentifiers(dispatch))
     }
-  }, [])
+  })
 
   const shoudRenderThisList =
     filteredIds && filteredIds.length ? filteredIds : identifications
@@ -66,8 +66,7 @@ const App = () => {
               <SearchBar
                 placeholderText='Pesquise o registro aqui'
                 filterText={text =>
-                  filterIds({ text, identifications, setFilteredIds })
-                }
+                  filterIds({ text, identifications, setFilteredIds })}
               />
               <HrStyle />
               {(shoudRenderThisList && shoudRenderThisList.length && (
@@ -99,7 +98,7 @@ const debouncedMask = addNewIdInput =>
   }, 300)
 
 const isntBlackList = (allIds = []) =>
-  Array.isArray(allIds) && allIds.filter(id => !id.blacklisted).reverse()
+  Array.isArray(allIds) && allIds.filter(id => !id.blacklisted)
 
 const filterIds = ({ text, identifications, setFilteredIds }) => {
   const thisFilteredIds = identifications.filter(id =>

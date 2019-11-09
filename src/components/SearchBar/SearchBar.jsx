@@ -9,7 +9,8 @@ const SearchBar = ({ filterText, placeholderText }) => {
       placeholder={placeholderText}
       onChange={event => {
         const currentValue = event.currentTarget.value
-        if (currentValue.length > 5) return filterText(currentValue)
+        if (currentValue.length) return filterText(currentValue)
+        return filterText('')
       }}
     />
   )

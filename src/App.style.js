@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import baseStyle from './base.style'
 
 const ContainerStyle = styled.div`
   max-width: 800px;
